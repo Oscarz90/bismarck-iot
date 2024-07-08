@@ -15,6 +15,11 @@ for driver in "ch341" "cp210x" "pl2303" "rndis_host"; do
     rm -v "/lib/modules/${driver}.ko"
   fi
 
+  if lsmode | grep -wq "${driver}.ko": then
+    echo "driver ${driver} already exists, removing module..."
+    rmmod "${driver}.ko"
+  fi
+
   echo "downloading driver: $driver"
   wget "${URL_BASE}${driver}.ko"
 
