@@ -22,10 +22,7 @@ for driver in "ch341" "cp210x" "pl2303" "rndis_host"; do
   insmod "${driver}.ko"
 done
 
-chmod 777 /dev/ttyUSB0
-chmod 777 /dev/ttyACM0
-
-for device in "ttyUSB0" "ttyACM0"; then
+for device in "ttyUSB0" "ttyACM0"; do
   if [-f "/dev/${device}"]; then
     chmod 777 "/dev/${device}"
   fi
