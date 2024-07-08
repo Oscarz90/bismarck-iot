@@ -12,7 +12,7 @@ cd /lib/modules
 for driver in "ch341" "cp210x" "pl2303" "rndis_host"; do
   if [-f "/lib/modules/${driver}.ko"]; then
     echo "file ${driver}.ko already exists, removing it..."
-    rm -v "${driver}.ko"
+    rm -v "/lib/modules/${driver}.ko"
   fi
 
   echo "downloading driver: $driver"
